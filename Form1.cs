@@ -13,6 +13,7 @@ namespace AgendaTelefonica
 
         }
 
+        //Estos botones son solo de prueba para verificar que la conexion a la BD funcionaba, lo pueden borrar para crear la UI
         private async void button1_Click(object sender, EventArgs e)
         {
 
