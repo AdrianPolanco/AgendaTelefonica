@@ -16,6 +16,8 @@ namespace AgendaTelefonica
         public string Telefono { get; set; }
         public string Correo { get; set; }
 
+
+        //Validando si los campos del registro cumplen con el formato especificado en los comentarios
         public bool Validar()
         {
             // Nombre: Debe ser una cadena de caracteres con al menos dos letras
@@ -40,11 +42,6 @@ namespace AgendaTelefonica
 
             //Todos los campos son validos
             return true;
-        }
-
-        public bool ValidarId()
-        {
-            return !(ID == 0);
         }
 
     }
