@@ -13,13 +13,18 @@ namespace AgendaTelefonica
     public partial class DeleteForm : Form
     {
         Database database;
-        SearchEngine searchEngine;
+        SearchEngine _searchEngine;
         int id = 0;
-        public DeleteForm()
+        MainForm _mainForm;
+        TextBox[] textBoxes;
+        public DeleteForm(MainForm mainForm)
         {
             InitializeComponent();
             database = new Database();
-            searchEngine = new SearchEngine(database);
+            _mainForm = mainForm;
+            _searchEngine = new SearchEngine(database);
+            textBoxes = new TextBox[] { DeleteTextBox };
+      
         }
 
         private void DeleteForm_Load(object sender, EventArgs e)
@@ -29,10 +34,11 @@ namespace AgendaTelefonica
 
         private async void SearchDeleteButton_Click(object sender, EventArgs e)
         {
-            Contacto contacto = await searchEngine.SearchById(DeleteTextBox.Text);
+            Contacto contacto = await _searchEngine.SearchById(DeleteTextBox.Text);
             id = contacto.ID;
             Label[] labels = new Label[] { LabelNombre, LabelApellido, LabelEmpresa, LabelTelefono, LabelCorreo };
             Controlador.RellenarLabels(labels, contacto);
+            Controlador.LimpiarTextBox(textBoxes);
         }
 
         private async void DeleteButton_Click(object sender, EventArgs e)
@@ -43,7 +49,10 @@ namespace AgendaTelefonica
                 try
                 {
                     await database.DeleteContact(id);
+                    List<Contacto> lista = await database.ReadAllContacts();
+                    Data.Update(lista, _mainForm);
                     MessageBox.Show("¡Contacto eliminado con exito!", "Tu contacto fue eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 catch (Exception ex)
                 {

@@ -173,6 +173,7 @@
             Controls.Add(TextBoxNombre);
             Name = "AddForm";
             Text = "AddForm";
+            Load += AddForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

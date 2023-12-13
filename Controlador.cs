@@ -49,5 +49,13 @@ namespace AgendaTelefonica
                 index += 1;
             }
         }
+
+        public static void LimpiarTextBox(TextBox[] textBoxes)
+        {
+            foreach(TextBox t in textBoxes)
+            {
+                t.Text = "";
+            }
+        }
     }
 }

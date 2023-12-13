@@ -30,12 +30,17 @@
         {
             components = new System.ComponentModel.Container();
             TablaContactos = new DataGridView();
-            SearchTextBox = new TextBox();
             SearchButton = new FontAwesome.Sharp.IconButton();
             databaseBindingSource = new BindingSource(components);
             ButtonEditar = new FontAwesome.Sharp.IconButton();
             ButtonEliminar = new FontAwesome.Sharp.IconButton();
             CreateButton = new FontAwesome.Sharp.IconButton();
+            SearchTextBox = new TextBox();
+            RadioButtonNombre = new RadioButton();
+            RadioButtonTelefono = new RadioButton();
+            RadioButtonEmpresa = new RadioButton();
+            label1 = new Label();
+            RefreshButton = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)TablaContactos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)databaseBindingSource).BeginInit();
             SuspendLayout();
@@ -44,7 +49,7 @@
             // 
             TablaContactos.AllowUserToAddRows = false;
             TablaContactos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TablaContactos.Location = new Point(40, 54);
+            TablaContactos.Location = new Point(57, 106);
             TablaContactos.Name = "TablaContactos";
             TablaContactos.RowHeadersWidth = 51;
             TablaContactos.RowTemplate.Height = 29;
@@ -52,20 +57,13 @@
             TablaContactos.TabIndex = 0;
             TablaContactos.CellContentClick += TablaContactos_CellContentClick;
             // 
-            // SearchTextBox
-            // 
-            SearchTextBox.Location = new Point(700, 12);
-            SearchTextBox.Name = "SearchTextBox";
-            SearchTextBox.Size = new Size(298, 27);
-            SearchTextBox.TabIndex = 1;
-            // 
             // SearchButton
             // 
             SearchButton.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
             SearchButton.IconColor = Color.Black;
             SearchButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             SearchButton.IconSize = 24;
-            SearchButton.Location = new Point(1004, 12);
+            SearchButton.Location = new Point(1068, 10);
             SearchButton.Name = "SearchButton";
             SearchButton.Padding = new Padding(5);
             SearchButton.Size = new Size(69, 29);
@@ -83,7 +81,7 @@
             ButtonEditar.IconColor = Color.Black;
             ButtonEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             ButtonEditar.IconSize = 24;
-            ButtonEditar.Location = new Point(600, 10);
+            ButtonEditar.Location = new Point(476, 10);
             ButtonEditar.Name = "ButtonEditar";
             ButtonEditar.Size = new Size(94, 29);
             ButtonEditar.TabIndex = 4;
@@ -96,7 +94,7 @@
             ButtonEliminar.IconColor = Color.Black;
             ButtonEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             ButtonEliminar.IconSize = 20;
-            ButtonEliminar.Location = new Point(500, 10);
+            ButtonEliminar.Location = new Point(376, 10);
             ButtonEliminar.Name = "ButtonEliminar";
             ButtonEliminar.Size = new Size(94, 29);
             ButtonEliminar.TabIndex = 5;
@@ -109,18 +107,84 @@
             CreateButton.IconColor = Color.Black;
             CreateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             CreateButton.IconSize = 24;
-            CreateButton.Location = new Point(400, 10);
+            CreateButton.Location = new Point(276, 10);
             CreateButton.Name = "CreateButton";
             CreateButton.Size = new Size(94, 29);
             CreateButton.TabIndex = 6;
             CreateButton.UseVisualStyleBackColor = true;
             CreateButton.Click += CreateButton_Click;
             // 
+            // SearchTextBox
+            // 
+            SearchTextBox.Location = new Point(700, 12);
+            SearchTextBox.Name = "SearchTextBox";
+            SearchTextBox.Size = new Size(362, 27);
+            SearchTextBox.TabIndex = 1;
+            // 
+            // RadioButtonNombre
+            // 
+            RadioButtonNombre.AutoSize = true;
+            RadioButtonNombre.Checked = true;
+            RadioButtonNombre.Location = new Point(700, 45);
+            RadioButtonNombre.Name = "RadioButtonNombre";
+            RadioButtonNombre.Size = new Size(85, 24);
+            RadioButtonNombre.TabIndex = 7;
+            RadioButtonNombre.TabStop = true;
+            RadioButtonNombre.Text = "Nombre";
+            RadioButtonNombre.UseVisualStyleBackColor = true;
+            // 
+            // RadioButtonTelefono
+            // 
+            RadioButtonTelefono.AutoSize = true;
+            RadioButtonTelefono.Location = new Point(833, 45);
+            RadioButtonTelefono.Name = "RadioButtonTelefono";
+            RadioButtonTelefono.Size = new Size(88, 24);
+            RadioButtonTelefono.TabIndex = 8;
+            RadioButtonTelefono.Text = "Telefono";
+            RadioButtonTelefono.UseVisualStyleBackColor = true;
+            // 
+            // RadioButtonEmpresa
+            // 
+            RadioButtonEmpresa.AutoSize = true;
+            RadioButtonEmpresa.Location = new Point(975, 45);
+            RadioButtonEmpresa.Name = "RadioButtonEmpresa";
+            RadioButtonEmpresa.Size = new Size(87, 24);
+            RadioButtonEmpresa.TabIndex = 9;
+            RadioButtonEmpresa.Text = "Empresa";
+            RadioButtonEmpresa.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(593, 45);
+            label1.Name = "label1";
+            label1.Size = new Size(82, 20);
+            label1.TabIndex = 10;
+            label1.Text = "Buscar por:";
+            // 
+            // RefreshButton
+            // 
+            RefreshButton.IconChar = FontAwesome.Sharp.IconChar.ArrowsRotate;
+            RefreshButton.IconColor = Color.Black;
+            RefreshButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            RefreshButton.IconSize = 24;
+            RefreshButton.Location = new Point(628, 10);
+            RefreshButton.Name = "RefreshButton";
+            RefreshButton.Size = new Size(66, 29);
+            RefreshButton.TabIndex = 11;
+            RefreshButton.UseVisualStyleBackColor = true;
+            RefreshButton.Click += RefreshButton_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1149, 450);
+            ClientSize = new Size(1149, 491);
+            Controls.Add(RefreshButton);
+            Controls.Add(label1);
+            Controls.Add(RadioButtonEmpresa);
+            Controls.Add(RadioButtonTelefono);
+            Controls.Add(RadioButtonNombre);
             Controls.Add(CreateButton);
             Controls.Add(ButtonEliminar);
             Controls.Add(ButtonEditar);
@@ -138,12 +202,17 @@
 
         #endregion
 
-        private DataGridView TablaContactos;
-        private TextBox SearchTextBox;
+        public DataGridView TablaContactos;
         private FontAwesome.Sharp.IconButton SearchButton;
         private BindingSource databaseBindingSource;
         private FontAwesome.Sharp.IconButton ButtonEditar;
         private FontAwesome.Sharp.IconButton ButtonEliminar;
         private FontAwesome.Sharp.IconButton CreateButton;
+        private TextBox SearchTextBox;
+        private RadioButton RadioButtonNombre;
+        private RadioButton RadioButtonTelefono;
+        private RadioButton RadioButtonEmpresa;
+        private Label label1;
+        private FontAwesome.Sharp.IconButton RefreshButton;
     }
 }

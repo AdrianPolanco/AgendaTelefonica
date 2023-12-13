@@ -47,6 +47,8 @@ namespace AgendaTelefonica
                 //EnsureCreated te crea la BD con su tabla si no existe
                 this.Database.EnsureCreated();
                 contacto.Validar();
+                List<Contacto>? numerosTelefono = await ReadContactByPhoneNumber(contacto.Telefono);
+                if (numerosTelefono.Count > 0) throw new InvalidContactException("Telefono", $"El numero {contacto.Telefono} ya existe en tu agenda telefonica. Introduce un telefono nuevo.");
                 await this.Contactos.AddAsync(contacto);
                 await this.SaveAsync();
             }
@@ -103,8 +105,21 @@ namespace AgendaTelefonica
         {
             try
             {
-                //Retorna los contactos que contengan parte de ese numero telefonico
+                //Retorna los contactos cuyo numero contenga parte de ese numero telefonico
                 return await this.Contactos.Where(c => c.Telefono.Contains(phoneNumber)).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<List<Contacto>> ReadContactByCompany(string companyName)
+        {
+            try
+            {
+                //Retorna los contactos cuya empresa contenga parte de ese nombre
+                return await this.Contactos.Where(c => c.Empresa.Contains(companyName)).ToListAsync();
             }
             catch (Exception ex)
             {

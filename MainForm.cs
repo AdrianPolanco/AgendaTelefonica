@@ -13,19 +13,36 @@ namespace AgendaTelefonica
 {
     public partial class MainForm : Form
     {
-        private Database database;
+        public Database database;
         private UpdateForm updateForm;
         private DeleteForm deleteForm;
         private AddForm addForm;
+        private SearchEngine searchEngine;
+        private TextBox[] textBoxes;
+
         public MainForm()
         {
             InitializeComponent();
 
             this.Load += MainForm_Load;
-        }
-        private async void SearchButton_Click(object sender, EventArgs e)
-        {
 
+        }
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            if (RadioButtonNombre.Checked)
+            {
+                searchEngine.Search(RadioButtonNombre, SearchTextBox.Text, this);
+            }
+            else if (RadioButtonTelefono.Checked)
+            {
+                searchEngine.Search(RadioButtonTelefono, SearchTextBox.Text, this);
+            }
+            else if (RadioButtonEmpresa.Checked)
+            {
+                searchEngine.Search(RadioButtonEmpresa, SearchTextBox.Text, this);
+            }
+
+            Controlador.LimpiarTextBox(textBoxes);
         }
 
 
@@ -42,8 +59,10 @@ namespace AgendaTelefonica
             try
             {
                 this.database = new Database();
-                List<Contacto> contactos = await database.ReadAllContacts();
-                TablaContactos.DataSource = contactos;
+                searchEngine = new SearchEngine(database);
+                List<Contacto> lista = await database.ReadAllContacts();
+                Data.Update(lista, this);
+                textBoxes = new TextBox[] { SearchTextBox };
             }
             catch (Exception ex)
             {
@@ -58,20 +77,27 @@ namespace AgendaTelefonica
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            updateForm = new UpdateForm();
+            updateForm = new UpdateForm(this);
             updateForm.ShowDialog(this);
         }
 
         private void iconButton1_Click_1(object sender, EventArgs e)
         {
-            deleteForm = new DeleteForm();
+            deleteForm = new DeleteForm(this);
             deleteForm.ShowDialog(this);
         }
 
         private void CreateButton_Click(object sender, EventArgs e)
         {
-            addForm = new AddForm();
-            addForm.ShowDialog(this);   
+            addForm = new AddForm(this);
+            addForm.ShowDialog(this);
+        }
+
+        private async void RefreshButton_Click(object sender, EventArgs e)
+        {
+            List<Contacto> contactos = await database.ReadAllContacts();
+            Data.Update(contactos, this);
+            Controlador.LimpiarTextBox(textBoxes);
         }
     }
 }
