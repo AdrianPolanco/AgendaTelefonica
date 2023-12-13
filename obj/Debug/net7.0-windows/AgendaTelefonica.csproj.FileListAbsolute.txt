@@ -59,3 +59,6 @@ C:\Users\adfer\source\repos\AgendaTelefonica\obj\Debug\net7.0-windows\AgendaTele
 C:\Users\adfer\source\repos\AgendaTelefonica\obj\Debug\net7.0-windows\ref\AgendaTelefonica.dll
 C:\Users\adfer\source\repos\AgendaTelefonica\bin\Debug\net7.0-windows\appsettings.json
 C:\Users\adfer\source\repos\AgendaTelefonica\obj\Debug\net7.0-windows\AgendaTelefonica.UpdateForm.resources
+C:\Users\adfer\source\repos\AgendaTelefonica\obj\Debug\net7.0-windows\AgendaTelefonica.MainForm.resources
+C:\Users\adfer\source\repos\AgendaTelefonica\bin\Debug\net7.0-windows\FontAwesome.Sharp.dll
+C:\Users\adfer\source\repos\AgendaTelefonica\obj\Debug\net7.0-windows\AgendaTelefonica.Properties.Resources.resources

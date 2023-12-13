@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "z/PnhJgeKvE6d44JietCxBn4cL8ucagPNdKoe6JaPHbDb8UAbw2m9VS86DZNCBQoB45xysd/kyouMhMR9YB06g==",
+  "dgSpecHash": "SUsvuvj691HhLn0PMy+3RRklSQMbDKmDPwLJwCv94MNOuJ524xxKNhF+utiuxsXsfmxgaKfQx524aS/umn79+w==",
   "success": true,
   "projectFilePath": "C:\\Users\\adfer\\source\\repos\\AgendaTelefonica\\AgendaTelefonica.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\adfer\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\adfer\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\adfer\\.nuget\\packages\\fontawesome.sharp\\6.3.0\\fontawesome.sharp.6.3.0.nupkg.sha512",
     "C:\\Users\\adfer\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\adfer\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\adfer\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",

@@ -27,5 +27,16 @@ namespace AgendaTelefonica
             contacto.Validar();
             return contacto;
         }
+
+        public void Rellenar(Contacto contacto)
+        {
+            string[] valores = new string[] { contacto.Nombre, contacto.Apellido, contacto.Empresa, contacto.Telefono, contacto.Correo };
+            int index = 0;
+            foreach(TextBox t in listaValores)
+            {
+                t.Text = valores[index];
+                index += 1;
+            }
+        }
     }
 }
