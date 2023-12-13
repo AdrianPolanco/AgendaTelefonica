@@ -15,22 +15,22 @@ namespace AgendaTelefonica
     //Clase que se encargara de la conexion y las operaciones CRUD de la base de datos
     public class Database: DbContext
     {
-        private static Database? instance;
+       /* private static Database? instance;
         private Database()
         {
 
-        }
+        }*/
 
         //Propiedad que representa la tabla Contactos en la BD, en donde se guardara la informacion
         public DbSet<Contacto> Contactos { get; set; }
 
         //Metodo para obtener una instancia de esta clase, si no existe ninguna instancia te creara una y si no te devuelve la ya existente
         //para evitar tener varias instancias de la base de datos de forma innecesaria
-        public static Database GetInstance()
+        /*public static Database GetInstance()
         {
             if(instance == null) { instance = new Database(); }
             return instance;
-        }
+        }*/
 
         //Metodo para insertar guardar los cambios hechos en la BD tras un Create, Update o Delete
         private async Task<bool> SaveAsync()
@@ -61,7 +61,8 @@ namespace AgendaTelefonica
         {
             try
             {
-                return await this.Contactos.ToListAsync();
+                List<Contacto> lista = await this.Contactos.ToListAsync();
+                return lista;
             }
             catch (Exception ex)
             {
@@ -195,7 +196,7 @@ namespace AgendaTelefonica
         {
         modelBuilder.Entity<Contacto>(entity =>
             {
-                EntityConfiguration.GetInstance(entity);
+               EntityConfiguration.GetInstance(entity);
             });
         }
     }

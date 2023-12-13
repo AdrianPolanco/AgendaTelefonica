@@ -41,7 +41,9 @@
             BotonActualizar = new Button();
             BotonCancelar = new Button();
             label6 = new Label();
-            Prueba = new Label();
+            SearchByIdUpdateTextBox = new TextBox();
+            SearchUpdateButton = new FontAwesome.Sharp.IconButton();
+            label7 = new Label();
             SuspendLayout();
             // 
             // TextBoxNombre
@@ -142,6 +144,7 @@
             BotonCancelar.TabIndex = 11;
             BotonCancelar.Text = "Cancelar";
             BotonCancelar.UseVisualStyleBackColor = true;
+            BotonCancelar.Click += BotonCancelar_Click;
             // 
             // label6
             // 
@@ -153,21 +156,44 @@
             label6.TabIndex = 12;
             label6.Text = "Actualizar contacto";
             // 
-            // Prueba
+            // SearchByIdUpdateTextBox
             // 
-            Prueba.AutoSize = true;
-            Prueba.Location = new Point(623, 58);
-            Prueba.Name = "Prueba";
-            Prueba.Size = new Size(55, 20);
-            Prueba.TabIndex = 13;
-            Prueba.Text = "Prueba";
+            SearchByIdUpdateTextBox.Location = new Point(605, 21);
+            SearchByIdUpdateTextBox.Name = "SearchByIdUpdateTextBox";
+            SearchByIdUpdateTextBox.Size = new Size(121, 27);
+            SearchByIdUpdateTextBox.TabIndex = 13;
+            // 
+            // SearchUpdateButton
+            // 
+            SearchUpdateButton.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            SearchUpdateButton.IconColor = Color.Black;
+            SearchUpdateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            SearchUpdateButton.IconSize = 24;
+            SearchUpdateButton.Location = new Point(732, 19);
+            SearchUpdateButton.Name = "SearchUpdateButton";
+            SearchUpdateButton.Padding = new Padding(5);
+            SearchUpdateButton.Size = new Size(69, 29);
+            SearchUpdateButton.TabIndex = 15;
+            SearchUpdateButton.UseVisualStyleBackColor = true;
+            SearchUpdateButton.Click += SearchUpdateButton_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(498, 24);
+            label7.Name = "label7";
+            label7.Size = new Size(101, 20);
+            label7.TabIndex = 16;
+            label7.Text = "Buscar por ID:";
             // 
             // UpdateForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1219, 450);
-            Controls.Add(Prueba);
+            ClientSize = new Size(857, 450);
+            Controls.Add(label7);
+            Controls.Add(SearchUpdateButton);
+            Controls.Add(SearchByIdUpdateTextBox);
             Controls.Add(label6);
             Controls.Add(BotonCancelar);
             Controls.Add(BotonActualizar);
@@ -183,6 +209,7 @@
             Controls.Add(TextBoxNombre);
             Name = "UpdateForm";
             Text = "Actualizar contacto";
+            FormClosed += UpdateForm_FormClosed;
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -203,6 +230,8 @@
         private Button BotonActualizar;
         private Button BotonCancelar;
         private Label label6;
-        private Label Prueba;
+        private TextBox SearchByIdUpdateTextBox;
+        private FontAwesome.Sharp.IconButton SearchUpdateButton;
+        private Label label7;
     }
 }
