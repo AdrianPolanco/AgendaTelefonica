@@ -62,3 +62,5 @@ C:\Users\adfer\source\repos\AgendaTelefonica\obj\Debug\net7.0-windows\AgendaTele
 C:\Users\adfer\source\repos\AgendaTelefonica\obj\Debug\net7.0-windows\AgendaTelefonica.MainForm.resources
 C:\Users\adfer\source\repos\AgendaTelefonica\bin\Debug\net7.0-windows\FontAwesome.Sharp.dll
 C:\Users\adfer\source\repos\AgendaTelefonica\obj\Debug\net7.0-windows\AgendaTelefonica.Properties.Resources.resources
+C:\Users\adfer\source\repos\AgendaTelefonica\obj\Debug\net7.0-windows\AgendaTelefonica.DeleteForm.resources
+C:\Users\adfer\source\repos\AgendaTelefonica\obj\Debug\net7.0-windows\AgendaTelefonica.AddForm.resources

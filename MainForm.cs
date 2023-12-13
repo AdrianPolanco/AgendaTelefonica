@@ -15,6 +15,8 @@ namespace AgendaTelefonica
     {
         private Database database;
         private UpdateForm updateForm;
+        private DeleteForm deleteForm;
+        private AddForm addForm;
         public MainForm()
         {
             InitializeComponent();
@@ -51,8 +53,25 @@ namespace AgendaTelefonica
 
         private void ButtonEditar_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
             updateForm = new UpdateForm();
             updateForm.ShowDialog(this);
+        }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+            deleteForm = new DeleteForm();
+            deleteForm.ShowDialog(this);
+        }
+
+        private void CreateButton_Click(object sender, EventArgs e)
+        {
+            addForm = new AddForm();
+            addForm.ShowDialog(this);   
         }
     }
 }

@@ -33,7 +33,9 @@
             SearchTextBox = new TextBox();
             SearchButton = new FontAwesome.Sharp.IconButton();
             databaseBindingSource = new BindingSource(components);
-            ButtonEditar = new Button();
+            ButtonEditar = new FontAwesome.Sharp.IconButton();
+            ButtonEliminar = new FontAwesome.Sharp.IconButton();
+            CreateButton = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)TablaContactos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)databaseBindingSource).BeginInit();
             SuspendLayout();
@@ -77,19 +79,50 @@
             // 
             // ButtonEditar
             // 
-            ButtonEditar.Location = new Point(558, 9);
+            ButtonEditar.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            ButtonEditar.IconColor = Color.Black;
+            ButtonEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            ButtonEditar.IconSize = 24;
+            ButtonEditar.Location = new Point(600, 10);
             ButtonEditar.Name = "ButtonEditar";
-            ButtonEditar.Size = new Size(109, 30);
-            ButtonEditar.TabIndex = 3;
-            ButtonEditar.Text = "Editar";
+            ButtonEditar.Size = new Size(94, 29);
+            ButtonEditar.TabIndex = 4;
             ButtonEditar.UseVisualStyleBackColor = true;
-            ButtonEditar.Click += ButtonEditar_Click;
+            ButtonEditar.Click += iconButton1_Click;
+            // 
+            // ButtonEliminar
+            // 
+            ButtonEliminar.IconChar = FontAwesome.Sharp.IconChar.X;
+            ButtonEliminar.IconColor = Color.Black;
+            ButtonEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            ButtonEliminar.IconSize = 20;
+            ButtonEliminar.Location = new Point(500, 10);
+            ButtonEliminar.Name = "ButtonEliminar";
+            ButtonEliminar.Size = new Size(94, 29);
+            ButtonEliminar.TabIndex = 5;
+            ButtonEliminar.UseVisualStyleBackColor = true;
+            ButtonEliminar.Click += iconButton1_Click_1;
+            // 
+            // CreateButton
+            // 
+            CreateButton.IconChar = FontAwesome.Sharp.IconChar.Add;
+            CreateButton.IconColor = Color.Black;
+            CreateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            CreateButton.IconSize = 24;
+            CreateButton.Location = new Point(400, 10);
+            CreateButton.Name = "CreateButton";
+            CreateButton.Size = new Size(94, 29);
+            CreateButton.TabIndex = 6;
+            CreateButton.UseVisualStyleBackColor = true;
+            CreateButton.Click += CreateButton_Click;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1149, 450);
+            Controls.Add(CreateButton);
+            Controls.Add(ButtonEliminar);
             Controls.Add(ButtonEditar);
             Controls.Add(SearchButton);
             Controls.Add(SearchTextBox);
@@ -109,6 +142,8 @@
         private TextBox SearchTextBox;
         private FontAwesome.Sharp.IconButton SearchButton;
         private BindingSource databaseBindingSource;
-        private Button ButtonEditar;
+        private FontAwesome.Sharp.IconButton ButtonEditar;
+        private FontAwesome.Sharp.IconButton ButtonEliminar;
+        private FontAwesome.Sharp.IconButton CreateButton;
     }
 }

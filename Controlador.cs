@@ -38,5 +38,16 @@ namespace AgendaTelefonica
                 index += 1;
             }
         }
+
+        public static void RellenarLabels(Label[] labels, Contacto contacto)
+        {
+            int index = 0;
+            string[] valores = new string[] { contacto.Nombre, contacto.Apellido, contacto.Empresa, contacto.Telefono, contacto.Correo };
+            foreach (Label l in labels)
+            {
+                l.Text = valores[index];
+                index += 1;
+            }
+        }
     }
 }
